@@ -14,12 +14,12 @@ public class CombinedRequest {
         this.product = product;
     }
 
-    // Getter for store
+    // Getter for inventory
     public Inventory getInventory() {
         return inventory;
     }
 
-    // Setter for store
+    // Setter for inventory
     public void setInventory(Inventory inventory) {
         this.inventory = inventory;
     }
