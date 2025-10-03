@@ -20,7 +20,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     public Product findByName(String name);
 
-    public List<Product> findProductsByStoreId(Long storeid);
+    @Query("SELECT DISTINCT p FROM Product p JOIN p.inventories i WHERE i.store.id = :storeId")
+    List<Product> findProductsByStoreId(@Param("storeId") Long storeId);
 
     @Query("SELECT p FROM Product p JOIN Inventory i ON p.id = i.product.id WHERE i.store.id = :storeId AND p.name LIKE CONCAT('%', :pname, '%')")
     List<Product> findByNameLike(@Param("storeId") Long storeId, @Param("pname") String pname);
