@@ -60,7 +60,7 @@ public class OrderService {
 
             for (PurchaseProductDTO product : placeOrderRequest.getPurchaseProduct()) {
                 // Get inventory item
-                Inventory inventory = inventoryRepository.findByProductIdandStoreId(product.getId(),
+                Inventory inventory = inventoryRepository.findByProductIdAndStoreId(product.getId(),
                         placeOrderRequest.getStoreId());
                 if (inventory == null) {
                     throw new Exception("Inventory not found for product ID: " + product.getId());

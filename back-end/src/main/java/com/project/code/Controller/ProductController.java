@@ -86,7 +86,7 @@ public class ProductController {
     public Map<String, Object> getProductbyCategoryAndStoreId(@PathVariable String category,
             @PathVariable Long storeId) {
         var products = productRepository.findByCategory(category).stream()
-                .filter(p -> inventoryRepository.findByProductIdandStoreId(p.getId(), storeId) != null).toList();
+                .filter(p -> inventoryRepository.findByProductIdAndStoreId(p.getId(), storeId) != null).toList();
         return Map.of("products", products);
     }
 

@@ -123,7 +123,7 @@ public class InventoryController {
     @GetMapping("validate/{quantity}/{storeId}/{productId}")
     public boolean validateQuantity(@PathVariable int quantity, @PathVariable Long storeId,
             @PathVariable Long productId) {
-        var inventory = inventoryRepository.findByProductIdandStoreId(productId, storeId);
+        var inventory = inventoryRepository.findByProductIdAndStoreId(productId, storeId);
         if (inventory != null && inventory.getStockLevel() >= quantity) {
             return true;
         }

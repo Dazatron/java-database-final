@@ -11,7 +11,7 @@ import jakarta.transaction.Transactional;
 
 public interface InventoryRepository extends JpaRepository<Inventory, Long> {
 
-    public Inventory findByProductIdandStoreId(Long productId, Long storeId);
+    public Inventory findByProductIdAndStoreId(Long productId, Long storeId);
 
     public List<Inventory> findByStore_Id(Long storeId);
 

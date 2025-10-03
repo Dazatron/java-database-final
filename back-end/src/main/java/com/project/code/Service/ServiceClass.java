@@ -17,7 +17,7 @@ public class ServiceClass {
     private InventoryRepository inventoryRepository;
 
     public boolean validateInventory(Inventory inventory) {
-        var inv = inventoryRepository.findByProductIdandStoreId(inventory.getProduct().getId(),
+        var inv = inventoryRepository.findByProductIdAndStoreId(inventory.getProduct().getId(),
                 inventory.getStore().getId());
         return inv == null;
     }
@@ -32,7 +32,7 @@ public class ServiceClass {
     }
 
     public Inventory getInventoryId(Inventory inventory) {
-        return inventoryRepository.findByProductIdandStoreId(inventory.getProduct().getId(),
+        return inventoryRepository.findByProductIdAndStoreId(inventory.getProduct().getId(),
                 inventory.getStore().getId());
     }
 
